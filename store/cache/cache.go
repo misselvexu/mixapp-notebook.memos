@@ -65,9 +65,9 @@ func DefaultConfig() Config {
 
 // Cache is a thread-safe in-memory cache with TTL and memory management.
 type Cache struct {
+	itemCount  int64 // Use atomic operations to track item count - must be first for alignment
 	data       sync.Map
 	config     Config
-	itemCount  int64 // Use atomic operations to track item count
 	stopChan   chan struct{}
 	closedChan chan struct{}
 }
