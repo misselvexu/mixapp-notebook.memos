@@ -16,9 +16,13 @@ const BrandBanner = observer((props: Props) => {
 
   return (
     <div className={cn("relative w-full h-auto shrink-0", props.className)}>
-      <div className={cn("w-auto flex flex-row justify-start items-center text-gray-800 dark:text-gray-400", collapsed ? "px-1" : "px-3")}>
+      <div className={cn("w-auto flex flex-row justify-start items-center text-[var(--color-foreground)]", collapsed ? "px-1" : "px-3")}>
         <UserAvatar className="shrink-0" avatarUrl={avatarUrl} />
-        {!collapsed && <span className="ml-2 text-lg font-medium text-slate-800 dark:text-gray-300 shrink truncate">{title}</span>}
+        {!collapsed && (
+          <span className="ml-2 text-lg font-medium text-[var(--color-foreground)] dark:text-[var(--color-muted-foreground)] shrink truncate">
+            {title}
+          </span>
+        )}
       </div>
     </div>
   );

@@ -44,7 +44,7 @@ const WebhookSection = () => {
     <div className="w-full flex flex-col justify-start items-start">
       <div className="w-full flex justify-between items-center">
         <div className="flex-auto space-y-1">
-          <p className="flex flex-row justify-start items-center font-medium text-gray-700 dark:text-gray-400">
+          <p className="flex flex-row justify-start items-center font-medium text-[var(--color-foreground)]">
             {t("setting.webhook-section.title")}
           </p>
         </div>
@@ -61,14 +61,20 @@ const WebhookSection = () => {
       </div>
       <div className="w-full mt-2 flow-root">
         <div className="overflow-x-auto">
-          <div className="inline-block min-w-full border border-zinc-200 rounded-lg align-middle dark:border-zinc-600">
+          <div className="inline-block min-w-full border border-[var(--color-border)] rounded-lg align-middle">
             <table className="min-w-full divide-y divide-gray-300 dark:divide-zinc-600">
               <thead>
                 <tr>
-                  <th scope="col" className="px-3 py-2 text-left text-sm font-semibold text-gray-900 dark:text-gray-400">
+                  <th
+                    scope="col"
+                    className="px-3 py-2 text-left text-sm font-semibold text-[var(--color-foreground)] dark:text-[var(--color-muted-foreground)]"
+                  >
                     {t("common.name")}
                   </th>
-                  <th scope="col" className="px-3 py-2 text-left text-sm font-semibold text-gray-900 dark:text-gray-400">
+                  <th
+                    scope="col"
+                    className="px-3 py-2 text-left text-sm font-semibold text-[var(--color-foreground)] dark:text-[var(--color-muted-foreground)]"
+                  >
                     {t("setting.webhook-section.url")}
                   </th>
                   <th scope="col" className="relative px-3 py-2 pr-4">
@@ -79,8 +85,13 @@ const WebhookSection = () => {
               <tbody className="divide-y divide-gray-200 dark:divide-gray-500">
                 {webhooks.map((webhook) => (
                   <tr key={webhook.name}>
-                    <td className="whitespace-nowrap px-3 py-2 text-sm text-gray-900 dark:text-gray-400">{webhook.displayName}</td>
-                    <td className="max-w-[200px] px-3 py-2 text-sm text-gray-900 dark:text-gray-400 truncate" title={webhook.url}>
+                    <td className="whitespace-nowrap px-3 py-2 text-sm text-[var(--color-foreground)] dark:text-[var(--color-muted-foreground)]">
+                      {webhook.displayName}
+                    </td>
+                    <td
+                      className="max-w-[200px] px-3 py-2 text-sm text-[var(--color-foreground)] dark:text-[var(--color-muted-foreground)] truncate"
+                      title={webhook.url}
+                    >
                       {webhook.url}
                     </td>
                     <td className="relative whitespace-nowrap px-3 py-2 text-right text-sm">
@@ -98,7 +109,10 @@ const WebhookSection = () => {
 
                 {webhooks.length === 0 && (
                   <tr>
-                    <td className="whitespace-nowrap px-3 py-2 text-sm text-gray-900 dark:text-gray-400" colSpan={3}>
+                    <td
+                      className="whitespace-nowrap px-3 py-2 text-sm text-[var(--color-foreground)] dark:text-[var(--color-muted-foreground)]"
+                      colSpan={3}
+                    >
                       {t("setting.webhook-section.no-webhooks-found")}
                     </td>
                   </tr>
@@ -110,7 +124,7 @@ const WebhookSection = () => {
       </div>
       <div className="w-full mt-2">
         <Link
-          className="text-gray-500 text-sm inline-flex flex-row justify-start items-center hover:underline hover:text-blue-600"
+          className="text-[var(--color-muted-foreground)] text-sm inline-flex flex-row justify-start items-center hover:underline hover:text-blue-600"
           to="https://usememos.com/docs/advanced-settings/webhook"
           target="_blank"
         >

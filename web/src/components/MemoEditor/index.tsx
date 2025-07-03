@@ -484,10 +484,8 @@ const MemoEditor = observer((props: Props) => {
     >
       <div
         className={cn(
-          "group relative w-full flex flex-col justify-start items-start bg-white dark:bg-zinc-800 px-4 pt-3 pb-2 rounded-lg border",
-          state.isDraggingFile
-            ? "border-dashed border-gray-400 dark:border-primary-400 cursor-copy"
-            : "border-gray-200 dark:border-zinc-700 cursor-auto",
+          "group relative w-full flex flex-col justify-start items-start bg-white dark:bg-[var(--color-card)] px-4 pt-3 pb-2 rounded-lg border",
+          state.isDraggingFile ? "border-dashed border-[var(--color-border)] cursor-copy" : "border-[var(--color-border)] cursor-auto",
           className,
         )}
         tabIndex={0}
@@ -550,7 +548,7 @@ const MemoEditor = observer((props: Props) => {
 
       {/* Show memo metadata if memoName is provided */}
       {memoName && (
-        <div className="w-full -mt-1 mb-4 text-xs leading-5 px-4 opacity-60 font-mono text-gray-500 dark:text-zinc-500">
+        <div className="w-full -mt-1 mb-4 text-xs leading-5 px-4 opacity-60 font-mono text-[var(--color-muted-foreground)]">
           <div className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-0.5 items-center">
             {!isEqual(createTime, updateTime) && updateTime && (
               <>

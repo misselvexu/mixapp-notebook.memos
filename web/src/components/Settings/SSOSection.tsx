@@ -41,7 +41,7 @@ const SSOSection = () => {
     <div className="w-full flex flex-col gap-2 pt-2 pb-4">
       <div className="w-full flex flex-row justify-between items-center gap-1">
         <div className="flex flex-row items-center gap-1">
-          <span className="font-mono text-gray-400">{t("setting.sso-section.sso-list")}</span>
+          <span className="font-mono text-[var(--color-muted-foreground)]">{t("setting.sso-section.sso-list")}</span>
           <LearnMore url="https://www.usememos.com/docs/advanced-settings/sso" />
         </div>
         <Button color="primary" onClick={() => showCreateIdentityProviderDialog(undefined, fetchIdentityProviderList)}>
@@ -52,7 +52,7 @@ const SSOSection = () => {
       {identityProviderList.map((identityProvider) => (
         <div
           key={identityProvider.name}
-          className="py-2 w-full border-b last:border-b dark:border-zinc-700 flex flex-row items-center justify-between"
+          className="py-2 w-full border-b last:border-b dark:border-[var(--color-border)] flex flex-row items-center justify-between"
         >
           <div className="flex flex-row items-center">
             <p className="ml-2">
@@ -63,7 +63,7 @@ const SSOSection = () => {
           <div className="flex flex-row items-center">
             <Popover>
               <PopoverTrigger asChild>
-                <button className="flex items-center justify-center p-1 hover:bg-gray-100 dark:hover:bg-zinc-700 rounded">
+                <button className="flex items-center justify-center p-1 hover:bg-[var(--color-secondary)] dark:hover:bg-[var(--color-card)] rounded">
                   <MoreVerticalIcon className="w-4 h-auto" />
                 </button>
               </PopoverTrigger>
@@ -71,13 +71,13 @@ const SSOSection = () => {
                 <div className="flex flex-col gap-0.5 text-sm">
                   <button
                     onClick={() => showCreateIdentityProviderDialog(identityProvider, fetchIdentityProviderList)}
-                    className="flex items-center gap-2 px-2 py-1 text-left dark:text-zinc-300 hover:bg-gray-100 dark:hover:bg-zinc-700 outline-none rounded"
+                    className="flex items-center gap-2 px-2 py-1 text-left dark:text-[var(--color-muted-foreground)] hover:bg-[var(--color-secondary)] dark:hover:bg-[var(--color-card)] outline-none rounded"
                   >
                     {t("common.edit")}
                   </button>
                   <button
                     onClick={() => handleDeleteIdentityProvider(identityProvider)}
-                    className="flex items-center gap-2 px-2 py-1 text-left text-red-600 dark:text-red-400 hover:bg-gray-100 dark:hover:bg-zinc-700 outline-none rounded"
+                    className="flex items-center gap-2 px-2 py-1 text-left text-red-600 dark:text-red-400 hover:bg-[var(--color-secondary)] dark:hover:bg-[var(--color-card)] outline-none rounded"
                   >
                     {t("common.delete")}
                   </button>
@@ -88,7 +88,7 @@ const SSOSection = () => {
         </div>
       ))}
       {identityProviderList.length === 0 && (
-        <div className="w-full mt-2 text-sm dark:border-zinc-700 opacity-60 flex flex-row items-center justify-between">
+        <div className="w-full mt-2 text-sm dark:border-[var(--color-border)] opacity-60 flex flex-row items-center justify-between">
           <p className="">{t("setting.sso-section.no-sso-found")}</p>
         </div>
       )}

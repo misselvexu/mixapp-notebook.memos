@@ -78,9 +78,9 @@ const Navigation = observer((props: Props) => {
           <NavLink
             className={({ isActive }) =>
               cn(
-                "px-2 py-2 rounded-2xl border flex flex-row items-center text-lg text-gray-800 dark:text-gray-400 hover:bg-white hover:border-zinc-200 dark:hover:border-zinc-700 dark:hover:bg-zinc-800",
+                "px-2 py-2 rounded-2xl border flex flex-row items-center text-lg text-[var(--color-foreground)] hover:bg-white hover:border-[var(--color-border)] dark:hover:border-[var(--color-border)] dark:hover:bg-[var(--color-card)]",
                 collapsed ? "" : "w-full px-4",
-                isActive ? "bg-white drop-shadow-sm dark:bg-zinc-900 border-zinc-200 dark:border-zinc-700" : "border-transparent",
+                isActive ? "bg-white drop-shadow-sm dark:bg-[var(--color-card)] border-[var(--color-border)]" : "border-transparent",
               )
             }
             key={navLink.id}

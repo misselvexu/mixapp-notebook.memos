@@ -36,7 +36,7 @@ const Inboxes = observer(() => {
     <section className="@container w-full max-w-5xl min-h-full flex flex-col justify-start items-center sm:pt-3 md:pt-6 pb-8">
       {!md && <MobileHeader />}
       <div className="w-full px-4 sm:px-6">
-        <div className="w-full shadow flex flex-col justify-start items-start px-4 py-3 rounded-xl bg-white dark:bg-zinc-800 text-black dark:text-gray-300">
+        <div className="w-full shadow flex flex-col justify-start items-start px-4 py-3 rounded-xl bg-white dark:bg-[var(--color-card)] text-black dark:text-[var(--color-muted-foreground)]">
           <div className="relative w-full flex flex-row justify-between items-center">
             <p className="py-1 flex flex-row justify-start items-center select-none opacity-80">
               <BellIcon className="w-6 h-auto mr-1 opacity-80" />
@@ -47,7 +47,7 @@ const Inboxes = observer(() => {
             {inboxes.length === 0 && (
               <div className="w-full mt-4 mb-8 flex flex-col justify-center items-center italic">
                 <Empty />
-                <p className="mt-4 text-gray-600 dark:text-gray-400">{t("message.no-data")}</p>
+                <p className="mt-4 text-[var(--color-muted-foreground)]">{t("message.no-data")}</p>
               </div>
             )}
             <div className="flex flex-col justify-start items-start w-full mt-4 gap-4">

@@ -83,7 +83,7 @@ const MemoContent = observer((props: Props) => {
         parentPage: props.parentPage,
       }}
     >
-      <div className={`w-full flex flex-col justify-start items-start text-gray-800 dark:text-gray-400 ${className || ""}`}>
+      <div className={`w-full flex flex-col justify-start items-start text-[var(--color-foreground)] ${className || ""}`}>
         <div
           ref={memoContentContainerRef}
           className={cn(

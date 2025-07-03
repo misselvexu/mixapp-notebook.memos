@@ -17,11 +17,7 @@ const HomeLayout = observer(() => {
       )}
       {md && (
         <div
-          className={cn(
-            "fixed top-0 left-16 shrink-0 h-svh transition-all",
-            "border-r border-gray-200 dark:border-zinc-800",
-            lg ? "w-72" : "w-56",
-          )}
+          className={cn("fixed top-0 left-16 shrink-0 h-svh transition-all", "border-r border-[var(--color-border)]", lg ? "w-72" : "w-56")}
         >
           <HomeSidebar className={cn("px-3 py-6")} />
         </div>

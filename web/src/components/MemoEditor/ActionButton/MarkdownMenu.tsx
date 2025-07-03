@@ -70,14 +70,14 @@ const MarkdownMenu = (props: Props) => {
         <div className="flex flex-col text-sm gap-0.5">
           <button
             onClick={handleCodeBlockClick}
-            className="flex items-center gap-2 px-2 py-1 text-left dark:text-zinc-300 hover:bg-gray-100 dark:hover:bg-zinc-700 outline-none rounded"
+            className="flex items-center gap-2 px-2 py-1 text-left dark:text-[var(--color-muted-foreground)] hover:bg-[var(--color-secondary)] dark:hover:bg-[var(--color-card)] outline-none rounded"
           >
             <Code2Icon className="w-4 h-auto" />
             <span>{t("markdown.code-block")}</span>
           </button>
           <button
             onClick={handleCheckboxClick}
-            className="flex items-center gap-2 px-2 py-1 text-left dark:text-zinc-300 hover:bg-gray-100 dark:hover:bg-zinc-700 outline-none rounded"
+            className="flex items-center gap-2 px-2 py-1 text-left dark:text-[var(--color-muted-foreground)] hover:bg-[var(--color-secondary)] dark:hover:bg-[var(--color-card)] outline-none rounded"
           >
             <CheckSquareIcon className="w-4 h-auto" />
             <span>{t("markdown.checkbox")}</span>

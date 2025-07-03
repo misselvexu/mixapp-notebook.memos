@@ -60,18 +60,20 @@ const SignIn = observer(() => {
       <div className="w-full py-4 grow flex flex-col justify-center items-center">
         <div className="w-full flex flex-row justify-center items-center mb-6">
           <img className="h-14 w-auto rounded-full shadow" src={workspaceGeneralSetting.customProfile?.logoUrl || "/logo.webp"} alt="" />
-          <p className="ml-2 text-5xl text-black opacity-80 dark:text-gray-200">
+          <p className="ml-2 text-5xl text-black opacity-80 dark:text-[var(--color-muted-foreground)]">
             {workspaceGeneralSetting.customProfile?.title || "Memos"}
           </p>
         </div>
         {!workspaceGeneralSetting.disallowPasswordAuth ? (
           <PasswordSignInForm />
         ) : (
-          identityProviderList.length == 0 && <p className="w-full text-2xl mt-2 dark:text-gray-500">Password auth is not allowed.</p>
+          identityProviderList.length == 0 && (
+            <p className="w-full text-2xl mt-2 dark:text-[var(--color-muted-foreground)]">Password auth is not allowed.</p>
+          )
         )}
         {!workspaceGeneralSetting.disallowUserRegistration && !workspaceGeneralSetting.disallowPasswordAuth && (
           <p className="w-full mt-4 text-sm">
-            <span className="dark:text-gray-500">{t("auth.sign-up-tip")}</span>
+            <span className="dark:text-[var(--color-muted-foreground)]">{t("auth.sign-up-tip")}</span>
             <Link to="/auth/signup" className="cursor-pointer ml-2 text-blue-600 hover:underline" viewTransition>
               {t("common.sign-up")}
             </Link>

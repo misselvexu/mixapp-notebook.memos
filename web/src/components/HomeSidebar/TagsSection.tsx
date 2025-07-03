@@ -48,7 +48,7 @@ const TagsSection = observer((props: Props) => {
 
   return (
     <div className="flex flex-col justify-start items-start w-full mt-3 px-1 h-auto shrink-0 flex-nowrap hide-scrollbar">
-      <div className="flex flex-row justify-between items-center w-full gap-1 mb-1 text-sm leading-6 text-gray-400 select-none">
+      <div className="flex flex-row justify-between items-center w-full gap-1 mb-1 text-sm leading-6 text-[var(--color-muted-foreground)] select-none">
         <span>{t("common.tags")}</span>
         {tags.length > 0 && (
           <Popover>
@@ -57,7 +57,7 @@ const TagsSection = observer((props: Props) => {
             </PopoverTrigger>
             <PopoverContent align="end" alignOffset={-12}>
               <div className="w-auto flex flex-row justify-between items-center gap-2 p-1">
-                <span className="text-sm shrink-0 dark:text-zinc-400">{t("common.tree-mode")}</span>
+                <span className="text-sm shrink-0 dark:text-[var(--color-muted-foreground)]">{t("common.tree-mode")}</span>
                 <Switch checked={treeMode} onCheckedChange={(checked) => setTreeMode(checked)} />
               </div>
             </PopoverContent>
@@ -72,7 +72,7 @@ const TagsSection = observer((props: Props) => {
             {tags.map(([tag, amount]) => (
               <div
                 key={tag}
-                className="shrink-0 w-auto max-w-full text-sm rounded-md leading-6 flex flex-row justify-start items-center select-none hover:opacity-80 text-gray-600 dark:text-gray-400 dark:border-zinc-800"
+                className="shrink-0 w-auto max-w-full text-sm rounded-md leading-6 flex flex-row justify-start items-center select-none hover:opacity-80 text-[var(--color-muted-foreground)] dark:border-[var(--color-border)]"
               >
                 <Popover>
                   <PopoverTrigger asChild>
@@ -85,14 +85,14 @@ const TagsSection = observer((props: Props) => {
                     <div className="flex flex-col text-sm gap-0.5">
                       <button
                         onClick={() => showRenameTagDialog({ tag: tag })}
-                        className="flex items-center gap-2 px-2 py-1 text-left dark:text-zinc-300 hover:bg-gray-100 dark:hover:bg-zinc-700 outline-none rounded"
+                        className="flex items-center gap-2 px-2 py-1 text-left dark:text-[var(--color-muted-foreground)] hover:bg-[var(--color-secondary)] dark:hover:bg-[var(--color-card)] outline-none rounded"
                       >
                         <Edit3Icon className="w-4 h-auto" />
                         {t("common.rename")}
                       </button>
                       <button
                         onClick={() => handleDeleteTag(tag)}
-                        className="flex items-center gap-2 px-2 py-1 text-left text-red-600 dark:text-red-400 hover:bg-gray-100 dark:hover:bg-zinc-700 outline-none rounded"
+                        className="flex items-center gap-2 px-2 py-1 text-left text-red-600 dark:text-red-400 hover:bg-[var(--color-secondary)] dark:hover:bg-[var(--color-card)] outline-none rounded"
                       >
                         <TrashIcon className="w-4 h-auto" />
                         {t("common.delete")}
@@ -113,7 +113,7 @@ const TagsSection = observer((props: Props) => {
         )
       ) : (
         !props.readonly && (
-          <div className="p-2 border border-dashed border-zinc-200 dark:border-zinc-800 rounded-md flex flex-row justify-start items-start gap-1 text-gray-400 dark:text-gray-500">
+          <div className="p-2 border border-dashed border-[var(--color-border)] rounded-md flex flex-row justify-start items-start gap-1 text-[var(--color-muted-foreground)]">
             <TagsIcon />
             <p className="mt-0.5 text-sm leading-snug italic">{t("tag.create-tags-guide")}</p>
           </div>

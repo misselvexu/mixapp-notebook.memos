@@ -75,8 +75,8 @@ const MemoCommentMessage = observer(({ inbox }: Props) => {
         className={cn(
           "shrink-0 mt-2 p-2 rounded-full border",
           inbox.status === Inbox_Status.UNREAD
-            ? "border-blue-600 text-blue-600 bg-blue-50 dark:bg-zinc-800"
-            : "border-gray-500 text-gray-500 bg-gray-50 dark:bg-zinc-800",
+            ? "border-blue-600 text-blue-600 bg-blue-50 dark:bg-[var(--color-card)]"
+            : "border-[var(--color-border)] text-[var(--color-muted-foreground)] bg-gray-50 dark:bg-[var(--color-card)]",
         )}
       >
         <TooltipProvider>
@@ -92,21 +92,21 @@ const MemoCommentMessage = observer(({ inbox }: Props) => {
       </div>
       <div
         className={cn(
-          "border w-full p-2 px-3 rounded-lg flex flex-col justify-start items-start gap-1 dark:border-zinc-700 hover:bg-gray-100 dark:hover:bg-zinc-700",
+          "border w-full p-2 px-3 rounded-lg flex flex-col justify-start items-start gap-1 dark:border-[var(--color-border)] hover:bg-[var(--color-secondary)] dark:hover:bg-[var(--color-card)]",
           inbox.status !== Inbox_Status.UNREAD && "opacity-60",
         )}
       >
         {initialized ? (
           <>
             <div className="w-full flex flex-row justify-between items-center">
-              <span className="text-sm text-gray-500">{inbox.createTime?.toLocaleString()}</span>
+              <span className="text-sm text-[var(--color-muted-foreground)]">{inbox.createTime?.toLocaleString()}</span>
               <div>
                 {inbox.status === Inbox_Status.UNREAD && (
                   <TooltipProvider>
                     <Tooltip>
                       <TooltipTrigger>
                         <InboxIcon
-                          className="w-4 h-auto cursor-pointer text-gray-400 hover:text-blue-600"
+                          className="w-4 h-auto cursor-pointer text-[var(--color-muted-foreground)] hover:text-blue-600"
                           onClick={() => handleArchiveMessage()}
                         />
                       </TooltipTrigger>
@@ -119,7 +119,7 @@ const MemoCommentMessage = observer(({ inbox }: Props) => {
               </div>
             </div>
             <p
-              className="text-base leading-tight cursor-pointer text-gray-500 dark:text-gray-400 hover:underline hover:text-blue-600"
+              className="text-base leading-tight cursor-pointer text-[var(--color-muted-foreground)] hover:underline hover:text-blue-600"
               onClick={handleNavigateToMemo}
             >
               {t("inbox.memo-comment", {
@@ -131,7 +131,7 @@ const MemoCommentMessage = observer(({ inbox }: Props) => {
           </>
         ) : (
           <div className="w-full flex flex-row justify-center items-center my-2">
-            <LoaderIcon className="animate-spin text-zinc-500" />
+            <LoaderIcon className="animate-spin text-[var(--color-muted-foreground)]" />
           </div>
         )}
       </div>

@@ -104,7 +104,7 @@ const CreateWebhookDialog: React.FC<Props> = (props: Props) => {
   };
 
   return (
-    <div className="max-w-full shadow flex flex-col justify-start items-start bg-white dark:bg-zinc-800 dark:text-gray-300 p-4 rounded-lg">
+    <div className="max-w-full shadow flex flex-col justify-start items-start bg-white dark:bg-[var(--color-card)] p-4 rounded-lg">
       <div className="flex flex-row justify-between items-center mb-4 gap-2 w-full">
         <p className="title-text">
           {isCreating ? t("setting.webhook-section.create-dialog.create-webhook") : t("setting.webhook-section.create-dialog.edit-webhook")}

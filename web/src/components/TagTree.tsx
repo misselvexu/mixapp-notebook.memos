@@ -111,12 +111,12 @@ const TagItemContainer = observer((props: TagItemContainerProps) => {
     <>
       <div className="relative flex flex-row justify-between items-center w-full leading-6 py-0 mt-px rounded-lg text-sm select-none shrink-0">
         <div
-          className={`flex flex-row justify-start items-center truncate shrink leading-5 mr-1 text-gray-600 dark:text-gray-400 ${
+          className={`flex flex-row justify-start items-center truncate shrink leading-5 mr-1 text-[var(--color-muted-foreground)] ${
             isActive && "text-blue-600!"
           }`}
         >
           <div className="shrink-0">
-            <HashIcon className="w-4 h-auto shrink-0 mr-1 text-gray-400 dark:text-gray-500" />
+            <HashIcon className="w-4 h-auto shrink-0 mr-1 text-[var(--color-muted-foreground)]" />
           </div>
           <span className="truncate cursor-pointer hover:opacity-80" onClick={handleTagClick}>
             {tag.key} {tag.amount > 1 && `(${tag.amount})`}
@@ -128,7 +128,7 @@ const TagItemContainer = observer((props: TagItemContainerProps) => {
               className={`flex flex-row justify-center items-center w-6 h-6 shrink-0 transition-all rotate-0 ${showSubTags && "rotate-90"}`}
               onClick={handleToggleBtnClick}
             >
-              <ChevronRightIcon className="w-5 h-5 cursor-pointer text-gray-400 dark:text-gray-500" />
+              <ChevronRightIcon className="w-5 h-5 cursor-pointer text-[var(--color-muted-foreground)]" />
             </span>
           ) : null}
         </div>

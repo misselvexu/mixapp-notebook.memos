@@ -72,17 +72,17 @@ const SignUp = observer(() => {
       <div className="w-full py-4 grow flex flex-col justify-center items-center">
         <div className="w-full flex flex-row justify-center items-center mb-6">
           <img className="h-14 w-auto rounded-full shadow" src={workspaceGeneralSetting.customProfile?.logoUrl || "/logo.webp"} alt="" />
-          <p className="ml-2 text-5xl text-black opacity-80 dark:text-gray-200">
+          <p className="ml-2 text-5xl text-black opacity-80 dark:text-[var(--color-muted-foreground)]">
             {workspaceGeneralSetting.customProfile?.title || "Memos"}
           </p>
         </div>
         {!workspaceGeneralSetting.disallowUserRegistration ? (
           <>
-            <p className="w-full text-2xl mt-2 dark:text-gray-500">{t("auth.create-your-account")}</p>
+            <p className="w-full text-2xl mt-2 dark:text-[var(--color-muted-foreground)]">{t("auth.create-your-account")}</p>
             <form className="w-full mt-2" onSubmit={handleFormSubmit}>
               <div className="flex flex-col justify-start items-start w-full gap-4">
                 <div className="w-full flex flex-col justify-start items-start">
-                  <span className="leading-8 text-gray-600">{t("common.username")}</span>
+                  <span className="leading-8 text-[var(--color-muted-foreground)]">{t("common.username")}</span>
                   <Input
                     className="w-full bg-white dark:bg-black h-10"
                     type="text"
@@ -97,7 +97,7 @@ const SignUp = observer(() => {
                   />
                 </div>
                 <div className="w-full flex flex-col justify-start items-start">
-                  <span className="leading-8 text-gray-600">{t("common.password")}</span>
+                  <span className="leading-8 text-[var(--color-muted-foreground)]">{t("common.password")}</span>
                   <Input
                     className="w-full bg-white dark:bg-black h-10"
                     type="password"
@@ -121,13 +121,13 @@ const SignUp = observer(() => {
             </form>
           </>
         ) : (
-          <p className="w-full text-2xl mt-2 dark:text-gray-500">Sign up is not allowed.</p>
+          <p className="w-full text-2xl mt-2 dark:text-[var(--color-muted-foreground)]">Sign up is not allowed.</p>
         )}
         {!workspaceStore.state.profile.owner ? (
-          <p className="w-full mt-4 text-sm font-medium dark:text-gray-500">{t("auth.host-tip")}</p>
+          <p className="w-full mt-4 text-sm font-medium dark:text-[var(--color-muted-foreground)]">{t("auth.host-tip")}</p>
         ) : (
           <p className="w-full mt-4 text-sm">
-            <span className="dark:text-gray-500">{t("auth.sign-in-tip")}</span>
+            <span className="dark:text-[var(--color-muted-foreground)]">{t("auth.sign-in-tip")}</span>
             <Link to="/auth" className="cursor-pointer ml-2 text-blue-600 hover:underline" viewTransition>
               {t("common.sign-in")}
             </Link>

@@ -41,12 +41,12 @@ const UserSessionsSection = () => {
   const getDeviceIcon = (deviceType: string) => {
     switch (deviceType?.toLowerCase()) {
       case "mobile":
-        return <SmartphoneIcon className="w-4 h-4 text-gray-500" />;
+        return <SmartphoneIcon className="w-4 h-4 text-[var(--color-muted-foreground)]" />;
       case "tablet":
-        return <TabletIcon className="w-4 h-4 text-gray-500" />;
+        return <TabletIcon className="w-4 h-4 text-[var(--color-muted-foreground)]" />;
       case "desktop":
       default:
-        return <MonitorIcon className="w-4 h-4 text-gray-500" />;
+        return <MonitorIcon className="w-4 h-4 text-[var(--color-muted-foreground)]" />;
     }
   };
 
@@ -72,23 +72,29 @@ const UserSessionsSection = () => {
       <div className="w-full">
         <div className="sm:flex sm:items-center sm:justify-between">
           <div className="sm:flex-auto space-y-1">
-            <p className="flex flex-row justify-start items-center font-medium text-gray-700 dark:text-gray-400">
+            <p className="flex flex-row justify-start items-center font-medium text-[var(--color-foreground)]">
               {t("setting.user-sessions-section.title")}
               <LearnMore className="ml-2" url="https://usememos.com/docs/security/sessions" />
             </p>
-            <p className="text-sm text-gray-700 dark:text-gray-500">{t("setting.user-sessions-section.description")}</p>
+            <p className="text-sm text-[var(--color-foreground)]">{t("setting.user-sessions-section.description")}</p>
           </div>
         </div>
         <div className="w-full mt-2 flow-root">
           <div className="overflow-x-auto">
-            <div className="inline-block min-w-full border border-zinc-200 rounded-lg align-middle dark:border-zinc-600">
+            <div className="inline-block min-w-full border border-[var(--color-border)] rounded-lg align-middle">
               <table className="min-w-full divide-y divide-gray-300 dark:divide-zinc-600">
                 <thead>
                   <tr>
-                    <th scope="col" className="px-3 py-2 text-left text-sm font-semibold text-gray-900 dark:text-gray-400">
+                    <th
+                      scope="col"
+                      className="px-3 py-2 text-left text-sm font-semibold text-[var(--color-foreground)] dark:text-[var(--color-muted-foreground)]"
+                    >
                       {t("setting.user-sessions-section.device")}
                     </th>
-                    <th scope="col" className="px-3 py-2 text-left text-sm font-semibold text-gray-900 dark:text-gray-400">
+                    <th
+                      scope="col"
+                      className="px-3 py-2 text-left text-sm font-semibold text-[var(--color-foreground)] dark:text-[var(--color-muted-foreground)]"
+                    >
                       {t("setting.user-sessions-section.last-active")}
                     </th>
                     <th scope="col" className="relative py-3.5 pl-3 pr-4">
@@ -99,7 +105,7 @@ const UserSessionsSection = () => {
                 <tbody className="divide-y divide-gray-200 dark:divide-zinc-700">
                   {userSessions.map((userSession) => (
                     <tr key={userSession.sessionId}>
-                      <td className="whitespace-nowrap px-3 py-2 text-sm text-gray-900 dark:text-gray-400">
+                      <td className="whitespace-nowrap px-3 py-2 text-sm text-[var(--color-foreground)] dark:text-[var(--color-muted-foreground)]">
                         <div className="flex items-center space-x-3">
                           {getDeviceIcon(userSession.clientInfo?.deviceType || "")}
                           <div className="flex flex-col">
@@ -112,11 +118,13 @@ const UserSessionsSection = () => {
                                 </span>
                               )}
                             </span>
-                            <span className="text-xs text-gray-500 font-mono">{getFormattedSessionId(userSession.sessionId)}</span>
+                            <span className="text-xs text-[var(--color-muted-foreground)] font-mono">
+                              {getFormattedSessionId(userSession.sessionId)}
+                            </span>
                           </div>
                         </div>
                       </td>
-                      <td className="whitespace-nowrap px-3 py-2 text-sm text-gray-500 dark:text-gray-400">
+                      <td className="whitespace-nowrap px-3 py-2 text-sm text-[var(--color-muted-foreground)]">
                         <div className="flex items-center space-x-1">
                           <ClockIcon className="w-4 h-4" />
                           <span>{userSession.lastAccessedTime?.toLocaleString()}</span>
@@ -135,7 +143,9 @@ const UserSessionsSection = () => {
                               : t("setting.user-sessions-section.revoke-session")
                           }
                         >
-                          <TrashIcon className={`w-4 h-auto ${isCurrentSession(userSession) ? "text-gray-400" : "text-red-600"}`} />
+                          <TrashIcon
+                            className={`w-4 h-auto ${isCurrentSession(userSession) ? "text-[var(--color-muted-foreground)]" : "text-red-600"}`}
+                          />
                         </Button>
                       </td>
                     </tr>
@@ -143,7 +153,9 @@ const UserSessionsSection = () => {
                 </tbody>
               </table>
               {userSessions.length === 0 && (
-                <div className="text-center py-8 text-gray-500 dark:text-gray-400">{t("setting.user-sessions-section.no-sessions")}</div>
+                <div className="text-center py-8 text-[var(--color-muted-foreground)]">
+                  {t("setting.user-sessions-section.no-sessions")}
+                </div>
               )}
             </div>
           </div>
